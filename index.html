@@ -16,6 +16,10 @@
                     <h5 class="card-title">Title</h5>
                     <p class="card-text">The question</p>
                     <hr/>
+                    <div class="choice-container">
+                        <p class="choice-prefix">A</p>
+                        <p class="choice-text" data-number="1">Choice 1</p>
+                    </div>
                     <p class="answer">answer 1</p>
                     <p class="answer">answer 2</p>
                     <p class="answer">answer 3</p>
@@ -31,7 +35,7 @@
 
             function addEventListenersToElements(){
                 //an array of all the answer tags (p tags)
-               let answers = document.getElementsByClassName("answer")
+               let answers = document.getElementsByClassName("choice-prefix")
 
                for(let i=0; i<answers.length; i++) {
                    answers[i].addEventListener("mouseover", changeAnswerBackgroundColor)
@@ -44,7 +48,7 @@
                    e.target.style.background = "";
                } else {
                    //no color
-                   e.target.style.background = "tomato";
+                   e.target.style.background = "yellow";
                }
             }
         }
