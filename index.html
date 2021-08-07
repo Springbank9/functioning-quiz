@@ -36,8 +36,12 @@
                for(let i=0; i<answers.length; i++) {
                    answers[i].addEventListener("mouseover", changeAnswerBackgroundColor)
                }
-               function changeAnswerBackgroundColor
+               function changeAnswerBackgroundColor(e){
+                   e.target.style.background = "orange";
+               }
             }
+
+            addEventListenersToElements();
 
         </script>
     </body>
