@@ -35,12 +35,18 @@
 
                for(let i=0; i<answers.length; i++) {
                    answers[i].addEventListener("mouseover", changeAnswerBackgroundColor)
-                   answers[i].addEventListener("mouseout")
+                   answers[i].addEventListener("mouseout", changeAnswerBackgroundColor)
                }
+               //leave color empty when including hover over
                function changeAnswerBackgroundColor(e){
+                   if(e.target.style.background !==""){
+                   e.target.style.background = "";
+               } else {
+                   //no color
                    e.target.style.background = "orange";
                }
             }
+        }
 
             addEventListenersToElements();
 
