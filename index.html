@@ -11,7 +11,7 @@
         <h1 class="text-center">Quiz</h1>
 <!--Question container-->
         <div id="question-div">
-            <div class="card" style="width:80%; margin:10px auto;">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Title</h5>
                     <p class="card-text">The question</p>
@@ -36,6 +36,7 @@
                for(let i=0; i<answers.length; i++) {
                    answers[i].addEventListener("mouseover", changeAnswerBackgroundColor)
                    answers[i].addEventListener("mouseout", changeAnswerBackgroundColor)
+                   
                }
                //leave color empty when including hover over
                function changeAnswerBackgroundColor(e){
@@ -43,7 +44,7 @@
                    e.target.style.background = "";
                } else {
                    //no color
-                   e.target.style.background = "orange";
+                   e.target.style.background = "tomato";
                }
             }
         }
