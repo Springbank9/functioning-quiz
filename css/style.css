@@ -1,0 +1,14 @@
+.card-body {
+    background-color: #ecf5ff;
+    font-size: 62.5%;
+    width:80%; 
+    margin:10px auto;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
