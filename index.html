@@ -8,6 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     </head>
     <body>
+        <a href="style.html">Try</a>
         <h1 class="text-center">Quiz</h1>
 <!--Question container-->
         <div id="question-div">
@@ -20,6 +21,14 @@
                         <p class="choice-prefix">A</p>
                         <p class="choice-text" data-number="1">Choice 1</p>
                     </div>
+                    <div class="choice-container">
+                        <p class="choice-prefix">A</p>
+                        <p class="choice-text" data-number="1">Choice 1</p>
+                    </div>
+                    <div class="choice-container">
+                        <p class="choice-prefix">A</p>
+                        <p class="choice-text" data-number="1">Choice 1</p>
+                    </div>
                     <p class="answer">answer 1</p>
                     <p class="answer">answer 2</p>
                     <p class="answer">answer 3</p>
@@ -28,10 +37,16 @@
                 </div>
             </div>
         </div>
-
+        <div id="info_tab">?</div>
+    </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         <script>
             //JS Code
+
+            //Questions array - each object in the array is a question with its information 
+            let question = [
+                {q: "what is the result of 2 + 2", a1: "It's 4", a2:"It's 5", a3:"It's 6", a4:"It's 7", correct_answer:"Its 4"}
+            ]
 
             function addEventListenersToElements(){
                 //an array of all the answer tags (p tags)
@@ -45,7 +60,11 @@
                }
                //leave color empty when including hover over
                function changeAnswerBackgroundColor(e){
-                   if(e.target.style.background !==""){
+                 if(e.target.style.background == "green") {
+
+                }
+
+                  else if(e.target.style.background !==""){
                    e.target.style.background = "";
                } else {
                    //no color
@@ -53,12 +72,27 @@
                }
             }
             function selectAnswer(e){
+                removeBackgroundColorFromAllAnswers();
                 e.target.style.background = "green"
+            }
+            function removeBackgroundColorFromAllAnswers() {
+                let answers = document.getElementsByClassName("choice-prefix")
+                    for(let i=0; i<answers.length; i++) {  
+                        answers[i].style.background = "";
+                    }
             }
         }
 
             addEventListenersToElements();
 
+
+            $('#info_tab').on('click', function() {
+		$('#info').show();
+	});
+
+	$('.close').on('click', function () {
+		$('#info').hide();
+	});
         </script>
     </body>
 </html>
