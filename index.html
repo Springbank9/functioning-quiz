@@ -45,11 +45,14 @@
 
             //Questions array - each object in the array is a question with its information 
             let question = [
+                {},
                 {q: "what is the result of 2 + 2", a1: "It's 4", a2:"It's 5", a3:"It's 6", a4:"It's 7", correct_answer:"Its 4", user_answer:""}, 
                 {q: "what is the result of 3 + 3", a1: "It's 8", a2:"It's 6", a3:"It's 9", a4:"It's 10", correct_answer:"Its 6", user_answer:""}, 
                 {q: "what is the result of 1 + 0", a1: "It's 7", a2:"It's 5", a3:"It's 1", a4:"It's 7", correct_answer:"Its 1", user_answer:""}
 
             ]
+
+            let current_question = 0;
 
             function addEventListenersToElements(){
                 //an array of all the answer tags (p tags)
