@@ -8,6 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     </head>
     <body>
+        <a href="style.html">Tabs</a>
         <h1 class="text-center">Quiz</h1>
         <!--Question container-->
         <div id="question-div">
@@ -15,6 +16,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Title</h5>
                     <p class="card-text">The question</p>
+                    <button onclick="myFunction()">Hint</button>
+
+<p id="hint"></p>
                     <hr/>
                     <p class="answer">answer 1</p>
                     <p class="answer">answer 2</p>
@@ -25,19 +29,54 @@
             </div>
 
         </div>
+        <div class="endPage container flex-center flex-column hidden">
+            <p class="endText">Your result is</p>
+            <div class="result flex-center">0</div>
+            <a class="btn" id="playAgainButton">Play Again</a>
+            <div class="shareButtons flex-center" >
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"  data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         <script>
             //JS Code
+
+            function myFunction() {
+  document.getElementById("hint").innerHTML = "Hello World";
+}
+
             function addEventListenersToElements(){
 
                 //an array of all of the answer tags (p tags)
                 var answers = document.getElementsByClassName("answer")
                 for(var i = 0; i < answers.length; i++){
                     answers[i].addEventListener("mouseover", changeAnswerBackgroundColor)
+                    answers[i].addEventListener("mouseout", changeAnswerBackgroundColor)
+                    answers[i].addEventListener("click", selectAnswer)
                 }
 
                 function changeAnswerBackgroundColor(e){
-                    e.target.style.background = "tomato";
+                    if(e.target.style.backbround == "green"){
+
+                    }
+                    //if the background color is NOT white there is another color
+                    else if(e.target.style.background !== ""){
+                    e.target.style.background = "";
+                    //if there is nor color
+                    }else {
+                        e.target.style.background = "tomato";
+                    }
+                }
+
+                function selectAnswer(e){
+                    //remove background color from all answers
+                    removeBackgroundColorFromAllAnswers();
+                    //chnage background color of selected answer
+                    e.target.style.background = "green";
+                }
+                function removeBackgroundColorFromAllAnswers(){
+                var answers = document.getElementsByClassName("answer")
+                for(var i = 0; i < answers.length; i++){
+                    answers[i].style.background = "";
+                }
                 }
             }
 
