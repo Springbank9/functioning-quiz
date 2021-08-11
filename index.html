@@ -38,6 +38,22 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         <script>
             //JS Code
+            //questions array - each object in the array is a question with its information
+            var question = [
+                {}, //pass an empty object at the beginning of the array
+                {q: "What is the result of 2 + 2",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 4", user_answer:""}, 
+                {q: "What is the result of 3 + 3",a1:"It's 4", a2:"It's 6", a3:"It's 9", a4:"It's 7", correct_answer:"It's 6", user_answer:""}, 
+                {q: "What is the result of 2 + 5",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 7", user_answer:""}
+
+            ]
+
+            var current_question = 0
+
+            function getNextQuestion(){
+                //increase current question 
+                current_question++;
+                //make a reference to the questions-div
+            }
 
             function myFunction() {
   document.getElementById("hint").innerHTML = "Hello World";
