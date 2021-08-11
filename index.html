@@ -41,19 +41,46 @@
             //questions array - each object in the array is a question with its information
             var question = [
                 {}, //pass an empty object at the beginning of the array
-                {q: "What is the result of 2 + 2",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 4", user_answer:""}, 
-                {q: "What is the result of 3 + 3",a1:"It's 4", a2:"It's 6", a3:"It's 9", a4:"It's 7", correct_answer:"It's 6", user_answer:""}, 
-                {q: "What is the result of 2 + 5",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 7", user_answer:""}
+                {q: "Stuxnet",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 4", user_answer:""}, 
+                {q: "Mindar",a1:"It's 4", a2:"It's 6", a3:"It's 9", a4:"It's 7", correct_answer:"It's 6", user_answer:""}, 
+                {q: " “Everyone has three lives: a public life, a private life and a secret life.”",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 7", user_answer:""}, 
+                {q: "Bob and Alice",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 4", user_answer:""}, 
+                {q: "Diogenes",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 4", user_answer:""}, 
+                {q: "Recalcitrance",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 4", user_answer:""}, 
+                {q: "Stuxnet",a1:"It's 4", a2:"It's 5", a3:"It's 9", a4:"It's 7", correct_answer:"It's 4", user_answer:""}, 
+
 
             ]
 
             var current_question = 0
+
+            getNextQuestion();
 
             function getNextQuestion(){
                 //increase current question 
                 current_question++;
                 //make a reference to the questions-div
                 var question_div = document.getElementById("question-div");
+                //remove any HTML code from question-div before displaying a new question 
+                question_div.innerHTML = "";
+
+                //display the next question to user
+                question_div.innerHTML = '<div class="card" style="width:80%; margin: 10px auto;">'+
+                '<div class="card-body">'+
+                    '<h5 class="card-title">Title</h5>'+
+                    '<p class="card-text">'+question[current_question].q+'</p>'+
+                    '<hr/>'+
+                    
+                    '<p class="answer">'+question[current_question].a1+'</p>'+
+                    '<p class="answer">'+question[current_question].a2+'</p>'+
+                    '<p class="answer">'+question[current_question].a3+'</p>'+
+                    '<p class="answer">'+question[current_question].a4+'</p>'+
+                    '<a href="#" onclick="getNextQuestion" class="btn btn-primary">Next</a>'+
+                '</div>'+
+            '</div>';
+
+            //addEventListenersToElements 
+            addEventListenersToElements();
             }
 
             function myFunction() {
@@ -97,7 +124,8 @@
                 }
             }
 
-            addEventListenersToElements();
+
+
         </script>
     </body>
 </html>
